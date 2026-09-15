@@ -1,0 +1,10 @@
+# Render Blueprint: despliegue con Docker
+services:
+  - type: web
+    name: web-cmap
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /index.php
+    autoDeploy: true
