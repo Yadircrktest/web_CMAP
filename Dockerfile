@@ -9,11 +9,11 @@ COPY . .
 # Activa mod_rewrite (Redirecciones y URLs limpias)
 RUN a2enmod rewrite
 
-# Puerto por defecto (Render lo asigna con la variable PORT)
-EXPOSE 80
+# Render asigna el puerto 10000 por defecto en el plan gratuito.
+# Configuramos Apache para que escuche ahí (evita scripts de arranque frágiles).
+RUN sed -i "s/^Listen 80$/Listen 10000/" /etc/apache2/ports.conf && \
+    sed -i "s|<VirtualHost \*:80>|<VirtualHost *:10000>|" /etc/apache2/sites-available/000-default.conf
 
-# Punto de entrada que adapta Apache al puerto de Render
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+EXPOSE 10000
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+# Apache se inicia con el CMD por defecto de la imagen (apache2-foreground)
