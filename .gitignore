@@ -12,3 +12,6 @@ Desktop.ini
 # Archivos temporales
 *.log
 .tmp/
+
+# Documentos de trabajo (no forman parte del sitio)
+informacion_pagina_cmap/

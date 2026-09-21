@@ -31,7 +31,7 @@ $contacto     = $activePage === 'contacto';
       <div class="marca">
         <a class="marca-enlace" href="index.php" aria-label="Ir al inicio">
           <span class="marca-logo">
-            <img src="assets/img/espacio-logo.svg" alt="Espacio reservado para el logo institucional">
+            <img src="assets/img/logo_edificio.png" alt="Espacio reservado para el logo institucional">
           </span>
           <span class="marca-texto">
             <strong>Contraloría Municipal</strong>

@@ -24,7 +24,7 @@
   --contenedor:      1180px;
   --fuente-titulos:  'Merriweather', Georgia, 'Times New Roman', serif;
   --fuente-cuerpo:   'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --altura-cabecera: 92px;
+  --altura-cabecera: 160px;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -121,7 +121,8 @@ p{ color: var(--gris-700); }
   display:flex; align-items:center; gap:14px;
 }
 .marca-logo{
-  width:64px; height:64px; display:flex; align-items:center; justify-content:center;
+  width:160px; height:190px;
+  display:flex; align-items:center; justify-content:center;
   border-radius:var(--radio); overflow:hidden; flex-shrink:0;
   background:#fff;
 }
