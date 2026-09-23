@@ -56,25 +56,6 @@
     });
   }
 
-  /* ---------- Acordeón (preguntas frecuentes) ---------- */
-  var acordeones = document.querySelectorAll('.acordeon');
-  Array.prototype.forEach.call(acordeones, function (acordeon) {
-    var botones = acordeon.querySelectorAll('.acordeon-titulo');
-    Array.prototype.forEach.call(botones, function (boton) {
-      boton.addEventListener('click', function () {
-        var item = boton.closest('.acordeon-item');
-        var contenido = item.querySelector('.acordeon-contenido');
-        var abierto = item.classList.toggle('abierto');
-        boton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-        if (abierto) {
-          contenido.style.maxHeight = contenido.scrollHeight + 'px';
-        } else {
-          contenido.style.maxHeight = null;
-        }
-      });
-    });
-  });
-
   /* ---------- Validación del formulario de contacto ---------- */
   var formulario = document.getElementById('formularioContacto');
   var aviso = document.getElementById('msjFormulario');

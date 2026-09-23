@@ -7,7 +7,6 @@ $institucion  = $activePage === 'institucion';
 $informes     = $activePage === 'informes';
 $oac          = $activePage === 'oac';
 $noticias     = $activePage === 'noticias';
-$faq          = $activePage === 'faq';
 $contacto     = $activePage === 'contacto';
 ?>
 <!DOCTYPE html>
@@ -92,9 +91,6 @@ $contacto     = $activePage === 'contacto';
           </li>
           <li class="nav-item<?php echo $noticias ? ' activo' : ''; ?>">
             <a href="noticias.php">Noticias</a>
-          </li>
-          <li class="nav-item nav-item-faq<?php echo $faq ? ' activo' : ''; ?>">
-            <a href="preguntas-frecuentes.php">Preguntas Frecuentes</a>
           </li>
           <li class="nav-item<?php echo $contacto ? ' activo' : ''; ?>">
             <a href="contactanos.php">Contáctanos</a>

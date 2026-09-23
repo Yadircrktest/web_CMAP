@@ -147,8 +147,6 @@ p{ color: var(--gris-700); }
 .nav-item > a .chevron{ width:14px; height:14px; transition:transform var(--transicion); }
 .submenu .nav-item-desplegable > a{ display:flex; align-items:center; justify-content:space-between; gap:6px; }
 .submenu a .chevron{ width:12px; height:12px; flex-shrink:0; margin-left:4px; transition:transform var(--transicion); }
-.nav-item-faq > a{ padding:8px 10px; font-size:.85rem; }
-.nav-item-faq.activo > a::after{ left:10px; right:10px; }
 .nav-item-desplegable:hover > a .chevron{ transform:rotate(180deg); }
 .nav-item.activo > a{ color:var(--azul); background:var(--azul-suave); }
 .nav-item.activo > a::after{
@@ -528,29 +526,6 @@ p{ color: var(--gris-700); }
 .panel-info .lista-contacto svg{ width:19px; height:19px; color:#fff; flex-shrink:0; }
 .panel-info .lista-contacto a{ color:#fff; text-decoration:underline; }
 
-/* ---------- Acordeón (preguntas frecuentes) ---------- */
-.acordeon-item{
-  background:#fff; border:1px solid var(--gris-300);
-  border-radius:var(--radio); margin-bottom:12px; overflow:hidden;
-  box-shadow:var(--sombra);
-}
-.acordeon-titulo{
-  width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px;
-  padding:18px 22px; background:transparent; border:none; cursor:pointer;
-  font-family:var(--fuente-titulos); font-weight:700; font-size:1rem; color:var(--negro);
-  text-align:left;
-}
-.acordeon-titulo .icono{
-  width:28px; height:28px; flex-shrink:0; border-radius:50%;
-  background:var(--azul-suave); color:var(--azul);
-  display:flex; align-items:center; justify-content:center;
-  transition: transform var(--transicion), background var(--transicion), color var(--transicion);
-}
-.acordeon-titulo .icono svg{ width:16px; height:16px; }
-.acordeon-item.abierto .acordeon-titulo .icono{ transform:rotate(180deg); background:var(--azul); color:#fff; }
-.acordeon-contenido{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
-.acordeon-contenido-inner{ padding:4px 22px 22px; color:var(--gris-700); font-size:.95rem; }
-
 /* ---------- Valores en cápsulas ---------- */
 .valores{ display:flex; flex-wrap:wrap; gap:12px; }
 .valor{
@@ -777,7 +752,6 @@ p{ color: var(--gris-700); }
   }
   .nav-item-desplegable.abierto .submenu{ max-height:400px; padding:4px 0 10px 18px; }
   .submenu a{ padding:10px 10px; }
-  .nav-item-faq > a{ padding:12px 10px; font-size:.9rem; }
   .grid-accesos{ grid-template-columns:repeat(2, 1fr); }
   .grid-noticias{ grid-template-columns:repeat(2, 1fr); }
   .grid-contacto-inicio{ grid-template-columns:repeat(2, 1fr); }

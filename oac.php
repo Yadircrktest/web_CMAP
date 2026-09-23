@@ -181,7 +181,7 @@ include 'includes/header.php';
               </span>
               <div>
                 <strong>Horario de atención</strong>
-                <p>Lunes a viernes · 8:00 am a 11:30 am</p>
+                <p>Lunes a viernes · 8:00 am a 12:00 am</p>
               </div>
             </li>
           </ul>

@@ -80,17 +80,6 @@ include 'includes/header.php';
           </span>
         </a>
 
-        <a class="tarjeta-acceso" href="preguntas-frecuentes.php">
-          <span class="icono">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-          </span>
-          <h3>Preguntas Frecuentes</h3>
-          <p>Resolvemos tus dudas más comunes sobre trámites y servicios.</p>
-          <span class="enlace-mas">Ver más
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </span>
-        </a>
-
         <a class="tarjeta-acceso" href="contactanos.php">
           <span class="icono">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -279,16 +268,6 @@ include 'includes/header.php';
           <div>
             <h4>Informes de Gestión</h4>
             <p>Consulta los informes y la ejecución presupuestaria de la Contraloría.</p>
-          </div>
-        </a>
-
-        <a class="tarjeta-enlace" href="preguntas-frecuentes.php">
-          <span class="icono">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-          </span>
-          <div>
-            <h4>Preguntas Frecuentes</h4>
-            <p>Respuestas a las dudas más comunes sobre nuestros trámites y servicios.</p>
           </div>
         </a>
       </div>

@@ -62,7 +62,7 @@ include 'includes/header.php';
                 </span>
                 <div>
                   <strong>Correo electrónico</strong>
-                  <p><a href="mailto:contacto@contraloriaambrosioplaza.gob.ve">contacto@contraloriaambrosioplaza.gob.ve</a></p>
+                  <p><a href="mailto:contraloriamunicipioplaza@gmail.com">contraloriamunicipioplaza@gmail.com</a></p>
                 </div>
               </li>
               <li>
