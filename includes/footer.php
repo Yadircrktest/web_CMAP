@@ -9,10 +9,9 @@
         públicos, en beneficio de la colectividad.
       </p>
       <div class="pie-redes">
-        <a href="#" aria-label="Facebook">FB</a>
+        <a href="https://www.facebook.com/cmapunidadrelacionesinst1" aria-label="Facebook">FB</a>
         <a href="#" aria-label="X (Twitter)">X</a>
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="YouTube">YT</a>
+        <a href="https://www.instagram.com/contraloriaplaza/?hl=es-la" aria-label="Instagram">IG</a>
       </div>
     </div>
 
@@ -29,7 +28,7 @@
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <a href="mailto:contacto@contraloriaambrosioplaza.gob.ve">contacto@contraloriaambrosioplaza.gob.ve</a>
+          <a href="mailto:contraloriamunicipioplaza@gmail.com">contraloriamunicipioplaza@gmail.com</a>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
