@@ -33,7 +33,7 @@ $contacto     = $activePage === 'contacto';
       <div class="marca">
         <a class="marca-enlace" href="index.php" aria-label="Ir al inicio">
           <span class="marca-logo">
-            <img src="assets/img/logo_edificio.png" alt="Logo de la Contraloría Municipal de Ambrosio Plaza">
+            <img src="assets/img/logo_circulo.png" alt="Logo de la Contraloría Municipal de Ambrosio Plaza">
           </span>
           <span class="marca-texto">
             <strong>Contraloría Municipal</strong>
