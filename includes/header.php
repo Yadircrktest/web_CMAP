@@ -37,7 +37,7 @@ $contacto     = $activePage === 'contacto';
           </span>
           <span class="marca-texto">
             <strong>Contraloría del Municipio</strong>
-            <small>Ambrosio Plaza</small>
+            <strong>Ambrosio Plaza</strong>
             <span class="marca-rif">RIF G-20008811-7</span>
           </span>
         </a>
