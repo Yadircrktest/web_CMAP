@@ -40,8 +40,8 @@
     <div class="pie-col pie-col-identidad">
       <img class="pie-logo" src="assets/img/logo_circulo.png" alt="Logo de la Contraloría del Municipio Ambrosio Plaza">
       <p class="pie-identidad-titulo">Contraloría del Municipio</p>
-      <p class="pie-identidad-sub">Ambrosio Plaza</p>
-      <p class="pie-rif">RIF G-20008811-7</p>
+      <p class="pie-identidad-titulo">Ambrosio Plaza</p>
+      <p class="pie-identidad-titulo">RIF G-20008811-7</p>
     </div>
   </div>
 
