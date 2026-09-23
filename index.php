@@ -289,13 +289,17 @@ include 'includes/header.php';
       </div>
 
       <div class="grid-instagram">
+        <?php require_once 'includes/noticias_instagram.php'; ?>
         <?php
-        /* ============================================================
-           Reemplaza cada valor por el código corto de la publicación.
-           Para: https://www.instagram.com/p/abcd1234XY/ -> 'abcd1234XY'
-           ============================================================ */
-        $publicacionesInstagram = array('PON_AQUI_CODIGO_1', 'PON_AQUI_CODIGO_2', 'PON_AQUI_CODIGO_3');
-        foreach ($publicacionesInstagram as $codigo): ?>
+        $publicacionesInstagram = postsInstagram(3);
+        if (empty($publicacionesInstagram)) {
+          $publicacionesInstagram = array(
+            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_1', 'shortcode' => 'PON_AQUI_CODIGO_1'),
+            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_2', 'shortcode' => 'PON_AQUI_CODIGO_2'),
+            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_3', 'shortcode' => 'PON_AQUI_CODIGO_3'),
+          );
+        }
+        foreach ($publicacionesInstagram as $publicacion): ?>
         <figure class="insta-tarjeta">
           <div class="insta-cabecera">
             <span class="insta-avatar" aria-hidden="true">
@@ -316,10 +320,10 @@ include 'includes/header.php';
             <svg class="insta-camara" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
           </div>
           <div class="insta-marco">
-            <iframe src="https://www.instagram.com/p/<?php echo $codigo; ?>/embed/" title="Publicación del municipio en Instagram" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/<?php echo htmlspecialchars($publicacion['shortcode']); ?>/embed/" title="Publicación del municipio en Instagram" loading="lazy"></iframe>
           </div>
           <figcaption class="insta-pie">
-            <a href="https://www.instagram.com/p/<?php echo $codigo; ?>" target="_blank" rel="noopener">
+            <a href="<?php echo htmlspecialchars($publicacion['permalink']); ?>" target="_blank" rel="noopener">
               Ver publicación en Instagram
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="m10 14 11-11"/></svg>
             </a>

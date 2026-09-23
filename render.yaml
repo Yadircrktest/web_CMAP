@@ -22,3 +22,7 @@ services:
           property: connectionString
       - key: DB_SETUP_KEY
         value: CAMBIA-ESTA-CLAVE
+      - key: IG_ACCESS_TOKEN
+        value: ''
+      - key: IG_USER_ID
+        value: ''
