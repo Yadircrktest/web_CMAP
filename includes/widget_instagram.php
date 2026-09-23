@@ -3,14 +3,19 @@
    WIDGET DE INSTAGRAM (opcional, sin API Graph)
    ------------------------------------------------------------------
    Si prefieres un widget de terceros (Elfsight Instagram Feed,
-   LightWidget, etc.), genera tu widget con el usuario
+   LightWidget, Walls.io...), genera tu widget con el usuario
    @contraloriaplaza y pega el código que te entregue el servicio
-   entre las comillas de $widget_instagram_html.
+   ABAJO, entre las marcas HTML, reemplazando el comentario.
+
    Se mostrará automáticamente cuando NO haya token IG_ACCESS_TOKEN
-   configurado. Si dejas '' se usa el respaldo de códigos manuales.
-   ------------------------------------------------------------------
-   EJEMPLO (Elfsight):
-   $widget_instagram_html = '<div class="elfsight-app-XXXXXXXXXXX" data-elfsight-app-lazy></div>';
+   configurado. Si dejas la zona vacía se usa el respaldo manual.
    ------------------------------------------------------------------ */
 
-$widget_instagram_html = '';
+ob_start();
+?>
+<!-- PEGA AQUI EL CODIGO DEL WIDGET (reemplaza este comentario) -->
+<?php
+$widget_instagram_html = trim(ob_get_clean());
+if (strpos($widget_instagram_html, 'PEGA AQUI EL CODIGO') !== false) {
+  $widget_instagram_html = '';
+}
