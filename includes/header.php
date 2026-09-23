@@ -36,8 +36,8 @@ $contacto     = $activePage === 'contacto';
             <img src="assets/img/logo_circulo.png" alt="Logo de la Contraloría Municipal de Ambrosio Plaza">
           </span>
           <span class="marca-texto">
-            <strong>Contraloría Municipal</strong>
-            <small>Municipio Ambrosio Plaza</small>
+            <strong>Contraloría del Municipio</strong>
+            <small>Ambrosio Plaza</small>
           </span>
         </a>
       </div>
