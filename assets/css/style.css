@@ -37,6 +37,7 @@ body{
   background: var(--blanco);
   line-height: 1.6;
   font-size: 1rem;
+  overflow-x: clip;
 }
 
 img{ max-width:100%; display:block; }
@@ -647,8 +648,9 @@ p{ color: var(--gris-700); }
   border-radius:var(--radio); overflow:hidden;
   border:1px solid var(--gris-200); box-shadow:var(--sombra);
   display:flex; flex-direction:column;
+  max-width:100%;
 }
-.mapa-envuelve iframe{ display:block; width:100%; border:0; min-height:340px; }
+.mapa-envuelve iframe{ display:block; width:100%; max-width:100%; border:0; min-height:340px; }
 .mapa-envuelve .btn{ border-radius:0; padding:12px 24px; }
 /* ---------- Nota adicional en listas de contacto ---------- */
 .lista-contacto .nota{
@@ -785,6 +787,7 @@ p{ color: var(--gris-700); }
   .lista-documentos .doc-icono{ width:40px; height:40px; }
   .lista-documentos .doc-icono svg{ width:20px; height:20px; }
   .carnet-buscar{ padding:20px; }
+  .mapa-envuelve iframe{ min-height:280px; }
 }
 
 /* ---------- Carnet institucional ---------- */
@@ -833,7 +836,7 @@ p{ color: var(--gris-700); }
 }
 @media (max-width:560px){
   .carnet-cuerpo{ grid-template-columns:1fr; }
-  .carnet-foto{ max-width:220px; }
+  .carnet-foto{ max-width:220px; margin:0 auto; }
   .carnet-form{ flex-direction:column; }
 }
 @media print{
