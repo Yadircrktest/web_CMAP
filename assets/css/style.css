@@ -29,7 +29,7 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-x:clip; }
 
 body{
   font-family: var(--fuente-cuerpo);
@@ -559,7 +559,8 @@ p{ color: var(--gris-700); }
 .aviso-formulario.error{ display:block; background:#fdecea; color:#a93226; border:1px solid #f5c6c2; }
 
 /* ---------- Datos de contacto (página) ---------- */
-.grid-contacto{ display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:start; }
+.grid-contacto{ display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:start; min-width:0; }
+.grid-contacto > *{ min-width:0; }
 .lista-contacto li{
   display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--gris-200);
 }
@@ -571,7 +572,7 @@ p{ color: var(--gris-700); }
 }
 .lista-contacto .icono svg{ width:20px; height:20px; }
 .lista-contacto strong{ display:block; font-size:.95rem; margin-bottom:3px; }
-.lista-contacto p, .lista-contacto a{ font-size:.9rem; color:var(--gris-700); }
+.lista-contacto p, .lista-contacto a{ font-size:.9rem; color:var(--gris-700); overflow-wrap:anywhere; }
 .lista-contacto a:hover{ color:var(--azul); }
 
 /* ---------- Instagram ---------- */
