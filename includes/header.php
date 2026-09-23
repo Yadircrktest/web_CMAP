@@ -85,6 +85,7 @@ $contacto     = $activePage === 'contacto';
                 </a>
                 <ul class="submenu">
                   <li><a href="programas-sociales.php">Abuelos (as) Contralores (as)</a></li>
+                  <li><a href="contraloria-escuela.php">Contraloría va a la Escuela</a></li>
                 </ul>
               </li>
             </ul>
