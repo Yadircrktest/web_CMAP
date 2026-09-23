@@ -13,7 +13,9 @@
 
 ob_start();
 ?>
-<!-- PEGA AQUI EL CODIGO DEL WIDGET (reemplaza este comentario) -->
+<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-cb542f4e-89fc-4e2e-97b0-85e23256cfec" data-elfsight-app-lazy></div>
 <?php
 $widget_instagram_html = trim(ob_get_clean());
 if (strpos($widget_instagram_html, 'PEGA AQUI EL CODIGO') !== false) {
