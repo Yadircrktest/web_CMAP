@@ -56,7 +56,7 @@ include 'includes/header.php';
 
           <div class="carnet-tarjeta">
             <div class="carnet-cabecera">
-              <img src="assets/img/logo_edificio.png" alt="Logo de la Contraloría Municipal de Ambrosio Plaza">
+              <img src="assets/img/logo_circulo.png" alt="Logo de la Contraloría Municipal de Ambrosio Plaza">
               <div class="carnet-titulos">
                 <span class="carnet-org">Contraloría General de la República Bolivariana de Venezuela</span>
                 <strong>Contraloría del Municipio Ambrosio Plaza</strong>
