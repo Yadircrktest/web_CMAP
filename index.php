@@ -288,18 +288,22 @@ include 'includes/header.php';
         </a>
       </div>
 
+      <?php require_once 'includes/noticias_instagram.php'; ?>
+      <?php require_once 'includes/widget_instagram.php'; ?>
+      <?php
+      $tieneWidgetInstagram = trim((string)$widget_instagram_html) !== '';
+      $publicacionesInstagram = postsInstagram(3);
+      if (empty($publicacionesInstagram) && !$tieneWidgetInstagram) {
+        $publicacionesInstagram = array(
+          array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_1', 'shortcode' => 'PON_AQUI_CODIGO_1'),
+          array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_2', 'shortcode' => 'PON_AQUI_CODIGO_2'),
+          array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_3', 'shortcode' => 'PON_AQUI_CODIGO_3'),
+        );
+      }
+      ?>
+      <?php if (!empty($publicacionesInstagram)): ?>
       <div class="grid-instagram">
-        <?php require_once 'includes/noticias_instagram.php'; ?>
-        <?php
-        $publicacionesInstagram = postsInstagram(3);
-        if (empty($publicacionesInstagram)) {
-          $publicacionesInstagram = array(
-            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_1', 'shortcode' => 'PON_AQUI_CODIGO_1'),
-            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_2', 'shortcode' => 'PON_AQUI_CODIGO_2'),
-            array('permalink' => 'https://www.instagram.com/p/PON_AQUI_CODIGO_3', 'shortcode' => 'PON_AQUI_CODIGO_3'),
-          );
-        }
-        foreach ($publicacionesInstagram as $publicacion): ?>
+        <?php foreach ($publicacionesInstagram as $publicacion): ?>
         <figure class="insta-tarjeta">
           <div class="insta-cabecera">
             <span class="insta-avatar" aria-hidden="true">
@@ -331,6 +335,11 @@ include 'includes/header.php';
         </figure>
         <?php endforeach; ?>
       </div>
+      <?php elseif ($tieneWidgetInstagram): ?>
+      <div class="grid-instagram widget-instalado">
+        <?php echo $widget_instagram_html; ?>
+      </div>
+      <?php endif; ?>
     </div>
   </section>
 

@@ -585,6 +585,10 @@ p{ color: var(--gris-700); }
   grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
   gap:22px;
 }
+.grid-instagram.widget-instalado{
+  display:block;
+  min-height:220px;
+}
 
 .insta-tarjeta{
   display:flex; flex-direction:column;

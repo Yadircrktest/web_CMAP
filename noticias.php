@@ -9,13 +9,17 @@ require_once 'includes/noticias_instagram.php';
 /* ============================================================
    PUBLICACIONES DE INSTAGRAM DEL MUNICIPIO
    --------------------------------------------
-   Si hay token de la API Graph configurado (IG_ACCESS_TOKEN),
-   las publicaciones se toman automáticamente. Este arreglo de
-   códigos cortos se usa solo como respaldo:
+   Prioridad 1: si hay token de la API Graph (IG_ACCESS_TOKEN),
+   las publicaciones se toman automáticamente.
+   Prioridad 2: si hay widget de terceros configurado en
+   includes/widget_instagram.php, se muestra ese widget.
+   Prioridad 3: respaldo con códigos cortos manuales:
    Para https://www.instagram.com/p/abcd1234XY/  ->  'abcd1234XY'
    ============================================================ */
+require_once 'includes/widget_instagram.php';
+$tieneWidgetInstagram = trim((string)$widget_instagram_html) !== '';
 $publicacionesInstagram = postsInstagram(10);
-if (empty($publicacionesInstagram)) {
+if (empty($publicacionesInstagram) && !$tieneWidgetInstagram) {
   $manuales = array(
     'PON_AQUI_CODIGO_1',
     'PON_AQUI_CODIGO_2',
@@ -266,6 +270,7 @@ if (empty($publicacionesInstagram)) {
         </a>
       </div>
 
+      <?php if (!empty($publicacionesInstagram)): ?>
       <div class="grid-instagram">
         <?php foreach ($publicacionesInstagram as $publicacion): ?>
         <figure class="insta-tarjeta">
@@ -299,6 +304,11 @@ if (empty($publicacionesInstagram)) {
         </figure>
         <?php endforeach; ?>
       </div>
+      <?php elseif ($tieneWidgetInstagram): ?>
+      <div class="grid-instagram widget-instalado">
+        <?php echo $widget_instagram_html; ?>
+      </div>
+      <?php endif; ?>
     </div>
   </section>
 </main>
