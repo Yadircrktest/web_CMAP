@@ -180,8 +180,8 @@ include 'includes/header.php';
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </span>
               <div>
-                <strong>Horario de atención</strong>
-                <p>Lunes a viernes · 8:00 am a 12:00 am</p>
+                <strong>Horario de atención (hasta nuevo aviso)</strong>
+                <p>Lunes, miércoles y viernes · 8:00 am a 12:00 am</p>
               </div>
             </li>
           </ul>
