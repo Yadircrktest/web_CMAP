@@ -33,7 +33,12 @@ include 'includes/header.php';
           if ($pdo === null) {
             echo '<p class="aviso-formulario error">No fue posible conectar a la base de datos. Inténtalo más tarde.</p>';
           } else {
-            $trabajador = obtenerTrabajador($pdo, $cedula);
+            try {
+              $trabajador = obtenerTrabajador($pdo, $cedula);
+            } catch (PDOException $e) {
+              error_log('Carnet CMAP: ' . $e->getMessage());
+              $trabajador = false;
+            }
           }
         ?>
 
