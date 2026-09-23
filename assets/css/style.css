@@ -756,6 +756,37 @@ p{ color: var(--gris-700); }
   .hero-acciones .btn{ width:100%; }
 }
 
+/* ---------- Ajustes móvil (cabecera, pie y contenido) ---------- */
+@media (max-width: 640px){
+  :root{ --altura-cabecera: 78px; }
+  .marca-enlace{ gap:10px; }
+  .marca-logo{ width:58px; height:70px; border-radius:6px; }
+  .marca-texto strong{ font-size:.9rem; }
+  .marca-texto small{ font-size:.7rem; }
+  .nav-menu.abierto{ max-height:calc(100vh - 78px); }
+}
+
+@media (max-width: 768px){
+  .pie-grid{ grid-template-columns:1fr; gap:36px; }
+}
+
+@media (max-width: 480px){
+  .contenedor{ padding:0 16px; }
+  .hero{ padding:48px 0 56px; }
+  .hero-acciones{ gap:10px; }
+  .seccion{ padding:48px 0; }
+  .titulo-seccion{ margin-bottom:30px; }
+  .encabezado-pagina{ padding:44px 0; }
+  .panel-info{ padding:22px; }
+  .bloque{ padding:22px; }
+  .paso{ padding:22px 18px 22px 60px; }
+  .paso::before{ left:15px; top:20px; width:36px; height:36px; font-size:.95rem; }
+  .lista-documentos li{ flex-direction:column; align-items:flex-start; gap:10px; padding:16px 18px; }
+  .lista-documentos .doc-icono{ width:40px; height:40px; }
+  .lista-documentos .doc-icono svg{ width:20px; height:20px; }
+  .carnet-buscar{ padding:20px; }
+}
+
 /* ---------- Carnet institucional ---------- */
 .pagina-carnet{ max-width:780px; }
 .carnet-tarjeta{
