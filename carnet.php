@@ -5,7 +5,7 @@ $tituloPagina = 'Carnet Institucional';
 $cedula = isset($_GET['cedula']) ? trim($_GET['cedula']) : '';
 
 function mimeDeFoto($bin) {
-  if ($bin !== null && substr(bin2hex(substr($bin, 0, 3)), 0, 4) === 'ffd8') return 'image/jpeg';
+  if ($bin && substr(bin2hex(substr($bin, 0, 3)), 0, 4) === 'ffd8') return 'image/jpeg';
   return 'image/png';
 }
 
@@ -33,9 +33,7 @@ include 'includes/header.php';
           if ($pdo === null) {
             echo '<p class="aviso-formulario error">No fue posible conectar a la base de datos. Inténtalo más tarde.</p>';
           } else {
-            $stmt = $pdo->prepare('SELECT cedula, nombre_completo, cargo, direccion, foto FROM trabajadores WHERE cedula = :cedula LIMIT 1');
-            $stmt->execute([':cedula' => $cedula]);
-            $trabajador = $stmt->fetch();
+            $trabajador = obtenerTrabajador($pdo, $cedula);
           }
         ?>
 
