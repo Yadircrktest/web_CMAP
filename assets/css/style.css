@@ -134,6 +134,7 @@ p{ color: var(--gris-700); }
   font-size:1.05rem; line-height:1.2;
 }
 .marca-texto small{ color:var(--gris-500); font-size:.8rem; }
+.marca-texto .marca-rif{ font-size:.72rem; color:var(--azul); font-weight:600; letter-spacing:.04em; margin-top:2px; }
 
 /* Navegación */
 .nav-menu{ display:flex; }
@@ -789,6 +790,7 @@ p{ color: var(--gris-700); }
   .marca-logo{ width:58px; height:70px; border-radius:6px; }
   .marca-texto strong{ font-size:.9rem; }
   .marca-texto small{ font-size:.7rem; }
+  .marca-texto .marca-rif{ font-size:.66rem; }
   .nav-menu.abierto{ max-height:calc(100vh - 78px); }
 }
 
