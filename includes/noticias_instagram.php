@@ -52,7 +52,7 @@ function postsInstagram($max = 10) {
         foreach ($dec['data'] as $m) {
           if (!isset($m['permalink'])) continue;
           $permalink = rtrim($m['permalink'], '/');
-          $codigo = preg_match('#/p/([^/]+)$#', $permalink, $m2) ? $m2[1] : '';
+          $codigo = preg_match('#/(?:p|reel)/([^/]+)$#', $permalink, $m2) ? $m2[1] : '';
           if ($codigo === '') continue;
           $nuevos[] = array(
             'permalink' => $permalink . '/',
