@@ -793,3 +793,60 @@ p{ color: var(--gris-700); }
   .seccion{ padding:56px 0; }
   .hero-acciones .btn{ width:100%; }
 }
+
+/* ---------- Carnet institucional ---------- */
+.pagina-carnet{ max-width:780px; }
+.carnet-tarjeta{
+  background:#fff; border:1px solid var(--gris-300); border-radius:var(--radio);
+  overflow:hidden; box-shadow:var(--sombra);
+}
+.carnet-cabecera{
+  display:flex; align-items:center; gap:16px; padding:18px 24px;
+  background:linear-gradient(150deg, var(--azul) 0%, var(--azul-hover) 100%);
+  color:#fff;
+}
+.carnet-cabecera img{ width:64px; height:auto; background:#fff; border-radius:8px; padding:4px; }
+.carnet-titulos{ display:flex; flex-direction:column; }
+.carnet-org{ font-size:.78rem; text-transform:uppercase; letter-spacing:.4px; color:rgba(255,255,255,.75); }
+.carnet-titulos strong{ font-size:1.05rem; }
+.carnet-cuerpo{ display:grid; grid-template-columns:220px 1fr; gap:26px; padding:26px 24px; align-items:start; }
+.carnet-foto{ border:1px solid var(--gris-300); border-radius:calc(var(--radio) - 6px); overflow:hidden; background:var(--gris-100); }
+.carnet-foto img{ width:100%; height:auto; display:block; }
+.carnet-foto-vacia{ height:200px; display:flex; align-items:center; justify-content:center; color:var(--gris-500); }
+.carnet-datos{ display:flex; flex-direction:column; gap:14px; }
+.carnet-dato{ border-bottom:1px solid var(--gris-200); padding-bottom:10px; }
+.carnet-dato:last-child{ border-bottom:none; padding-bottom:0; }
+.carnet-etiqueta{
+  display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:1.2px;
+  color:var(--gris-500); font-weight:700; margin-bottom:4px;
+}
+.carnet-valor{ font-size:1rem; color:var(--gris-900); font-weight:600; }
+.carnet-importante{
+  margin:0 24px 24px; border:1px dashed var(--azul); border-radius:var(--radio);
+  padding:16px 18px; background:var(--azul-suave);
+}
+.carnet-importante strong{ color:var(--azul); display:block; margin-bottom:6px; font-size:1rem; }
+.carnet-importante p{ color:var(--gris-700); font-size:.92rem; line-height:1.55; }
+.carnet-buscar{
+  max-width:440px; background:#fff; border:1px solid var(--gris-300);
+  border-radius:var(--radio); box-shadow:var(--sombra); padding:28px;
+}
+.carnet-buscar h3{ margin-bottom:6px; }
+.carnet-buscar p{ color:var(--gris-600); font-size:.92rem; }
+.carnet-form{ display:flex; gap:10px; margin-top:14px; }
+.carnet-form input{
+  flex:1; border:1px solid var(--gris-300); border-radius:8px;
+  padding:10px 12px; font-family:inherit; font-size:.95rem;
+}
+@media (max-width:560px){
+  .carnet-cuerpo{ grid-template-columns:1fr; }
+  .carnet-foto{ max-width:220px; }
+  .carnet-form{ flex-direction:column; }
+}
+@media print{
+  header.cabecera, footer.pie, .encabezado-pagina{ display:none !important; }
+  body{ background:#fff; }
+  .seccion{ padding:0; }
+  .carnet-tarjeta{ box-shadow:none; border:2px solid #222; }
+  .carnet-cabecera, .carnet-importante{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
