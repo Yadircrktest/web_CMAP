@@ -116,7 +116,35 @@ include 'includes/header.php';
       </div>
 
       <div class="grid-noticias">
-
+        <?php require_once 'includes/noticias_cgr.php'; ?>
+        <?php require_once 'includes/noticias_cebm.php'; ?>
+        <?php $noticiaDestacada = noticiasCGR(1); ?>
+        <?php if (!empty($noticiaDestacada)): ?>
+        <?php $noticia = $noticiaDestacada[0]; ?>
+        <article class="tarjeta-noticia">
+          <?php if (!empty($noticia['img'])): ?>
+          <div class="media-foto"><img src="<?php echo htmlspecialchars($noticia['img']); ?>" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>" loading="lazy"></div>
+          <?php else: ?>
+          <div class="media-placeholder">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Imagen de la noticia
+            </span>
+          </div>
+          <?php endif; ?>
+          <div class="noticia-cuerpo">
+            <span class="noticia-fecha">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+              <?php echo formatoFechaES($noticia['fecha']); ?>
+            </span>
+            <h3><a href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener"><?php echo htmlspecialchars($noticia['titulo']); ?></a></h3>
+            <p class="extracto">Noticia publicada por la Contraloría General de la República.</p>
+            <a class="leer-mas" href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener">Leer más
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+        <?php else: ?>
         <article class="tarjeta-noticia">
           <div class="media-placeholder">
             <span>
@@ -136,7 +164,35 @@ include 'includes/header.php';
             </a>
           </div>
         </article>
+        <?php endif; ?>
 
+        <?php $noticiaEstadal = noticiasCEBM(1); ?>
+        <?php if (!empty($noticiaEstadal)): ?>
+        <?php $noticia = $noticiaEstadal[0]; ?>
+        <article class="tarjeta-noticia">
+          <?php if (!empty($noticia['img'])): ?>
+          <div class="media-foto"><img src="<?php echo htmlspecialchars($noticia['img']); ?>" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>" loading="lazy"></div>
+          <?php else: ?>
+          <div class="media-placeholder">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Imagen de la noticia
+            </span>
+          </div>
+          <?php endif; ?>
+          <div class="noticia-cuerpo">
+            <span class="noticia-fecha">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+              <?php echo formatoFechaES($noticia['fecha']); ?>
+            </span>
+            <h3><a href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener"><?php echo htmlspecialchars($noticia['titulo']); ?></a></h3>
+            <p class="extracto">Noticia publicada por la Contraloría del estado Bolivariano de Miranda.</p>
+            <a class="leer-mas" href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener">Leer más
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+        <?php else: ?>
         <article class="tarjeta-noticia">
           <div class="media-placeholder">
             <span>
@@ -156,6 +212,7 @@ include 'includes/header.php';
             </a>
           </div>
         </article>
+        <?php endif; ?>
 
         <article class="tarjeta-noticia">
           <div class="media-placeholder">

@@ -2,6 +2,8 @@
 $activePage = 'noticias';
 $tituloPagina = 'Noticias';
 include 'includes/header.php';
+require_once 'includes/noticias_cgr.php';
+require_once 'includes/noticias_cebm.php';
 
 /* ============================================================
    PUBLICACIONES DE INSTAGRAM DEL MUNICIPIO
@@ -28,12 +30,93 @@ $publicacionesInstagram = array(
     <div class="contenedor">
       <p class="migaja"><a href="index.php">Inicio</a> / Noticias</p>
       <h1>Noticias</h1>
-      <p>Información y novedades de la gestión contralora del municipio.</p>
+      <p>Información y novedades de la gestión contralora del municipio, del estado y del Sistema Nacional de Control Fiscal.</p>
     </div>
   </section>
 
-  <section class="seccion">
+  <!-- Noticias de la CGR -->
+  <section class="seccion subseccion" id="cgr">
     <div class="contenedor">
+      <h2 class="subseccion-titulo">Noticias de la CGR</h2>
+      <p style="margin-bottom:24px;">Novedades nacionales de la Contraloría General de la República y del Sistema Nacional de Control Fiscal.</p>
+      <div class="grid-noticias">
+        <?php $noticiasCGR = noticiasCGR(5); ?>
+        <?php if (!empty($noticiasCGR)): ?>
+          <?php foreach ($noticiasCGR as $noticia): ?>
+          <article class="tarjeta-noticia">
+            <?php if (!empty($noticia['img'])): ?>
+            <div class="media-foto"><img src="<?php echo htmlspecialchars($noticia['img']); ?>" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>" loading="lazy"></div>
+            <?php else: ?>
+            <div class="media-placeholder">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                Imagen de la noticia
+              </span>
+            </div>
+            <?php endif; ?>
+            <div class="noticia-cuerpo">
+              <span class="noticia-fecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                <?php echo formatoFechaES($noticia['fecha']); ?>
+              </span>
+              <h3><a href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener"><?php echo htmlspecialchars($noticia['titulo']); ?></a></h3>
+              <a class="leer-mas" href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener">Leer más
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="fila-sin-resultados" style="grid-column:1/-1;">No se pudieron consultar las noticias de la CGR en este momento. Intente más tarde.</p>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias Estadales -->
+  <section class="seccion seccion-gris subseccion" id="estadales">
+    <div class="contenedor">
+      <h2 class="subseccion-titulo">Noticias Estadales</h2>
+      <p style="margin-bottom:24px;">Noticias publicadas por la Contraloría del estado Bolivariano de Miranda y la coordinación con los órganos de control de la región.</p>
+      <div class="grid-noticias">
+        <?php $noticiasCEBM = noticiasCEBM(5); ?>
+        <?php if (!empty($noticiasCEBM)): ?>
+          <?php foreach ($noticiasCEBM as $noticia): ?>
+          <article class="tarjeta-noticia">
+            <?php if (!empty($noticia['img'])): ?>
+            <div class="media-foto"><img src="<?php echo htmlspecialchars($noticia['img']); ?>" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>" loading="lazy"></div>
+            <?php else: ?>
+            <div class="media-placeholder">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                Imagen de la noticia
+              </span>
+            </div>
+            <?php endif; ?>
+            <div class="noticia-cuerpo">
+              <span class="noticia-fecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                <?php echo formatoFechaES($noticia['fecha']); ?>
+              </span>
+              <h3><a href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener"><?php echo htmlspecialchars($noticia['titulo']); ?></a></h3>
+              <a class="leer-mas" href="<?php echo htmlspecialchars($noticia['url']); ?>" target="_blank" rel="noopener">Leer más
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="fila-sin-resultados" style="grid-column:1/-1;">No se pudieron consultar las noticias estadales en este momento. Intente más tarde.</p>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias Municipales -->
+  <section class="seccion subseccion" id="municipales">
+    <div class="contenedor">
+      <h2 class="subseccion-titulo">Noticias Municipales</h2>
+      <p style="margin-bottom:24px;">Actividades y logros de la gestión de la Contraloría Municipal de Ambrosio Plaza.</p>
       <div class="grid-noticias">
 
         <article class="tarjeta-noticia">
@@ -156,10 +239,6 @@ $publicacionesInstagram = array(
           </div>
         </article>
 
-      </div>
-
-      <div class="centrar">
-        <a class="btn btn-contorno-azul" href="#">Cargar más noticias</a>
       </div>
     </div>
   </section>

@@ -21,17 +21,23 @@ include 'includes/header.php';
         <div class="bloque">
           <h3>Misión</h3>
           <p>
-            Ejercer el control, la vigilancia y la fiscalización de los recursos públicos del
-            Municipio Ambrosio Plaza, con transparencia, oportunidad y eficiencia, contribuyendo
-            al mejoramiento de la gestión municipal y al buen uso del patrimonio colectivo.
+            Promover la eficiencia, eficacia y efectividad de la Gestión Pública del Municipio
+            Ambrosio Plaza del Estado Bolivariano de Miranda, a través de actuaciones fiscales,
+            como lo son: auditorías, asesorías, dictámenes, estudios organizativos, estadísticos
+            y financieros, análisis e investigaciones de cualquier naturaleza, e incentivar la
+            participación ciudadana, con el propósito de ejercer el control del Patrimonio
+            Municipal, a fin de promover su correcta y transparente administración, la rendición
+            de cuentas, así como el eficiente manejo de los recursos.
           </p>
         </div>
         <div class="bloque">
           <h3>Visión</h3>
           <p>
-            Ser un órgano de control fiscal moderno, confiable y cercano a la comunidad,
-            reconocido por su independencia, ética y compromiso social, que impulse una
-            cultura de transparencia y rendición de cuentas en la administración pública municipal.
+            Constituirse en el Órgano de Control Fiscal Municipal modelo y de referencia estadal
+            y nacional, en la fiscalización, vigilancia y control de los recursos públicos,
+            actuando bajo los principios de ética, honestidad y transparencia, teniendo como
+            norte la legalidad y solvencia moral en el ejercicio de las funciones conferidas
+            por Ley.
           </p>
         </div>
       </div>
@@ -44,20 +50,19 @@ include 'includes/header.php';
       <h2 class="subseccion-titulo">Reseña Histórica</h2>
       <div class="bloque">
         <p>
-          La Contraloría Municipal de Ambrosio Plaza ejerce sus funciones en el marco de lo
-          establecido en la Constitución de la República Bolivariana de Venezuela, la Ley
-          Orgánica de la Contraloría General de la República y el Sistema Nacional de Control Fiscal.
+          La Contraloría del Municipio Ambrosio Plaza fue creada el 26 de noviembre de 1975 como
+          Contraloría General del Concejo Municipal del Distrito Plaza del Estado Miranda, según
+          su Ordenanza de creación, la cual fue publicada en la Gaceta Municipal extraordinaria de
+          fecha 26/11/1975, y modificada según publicación en la Gaceta Municipal N° 98-045 de
+          fecha 23/06/1998.
         </p>
         <p>
-          Como órgano de control fiscal del municipio, su creación responde a la necesidad de
-          garantizar que los recursos públicos provenientes de la recaudación municipal y de las
-          transferencias del Poder Nacional y Estadal sean administrados con honestidad, eficiencia
-          y transparencia.
-        </p>
-        <p>
-          A lo largo de los años, la Contraloría ha acompañado al municipio en la modernización de
-          sus procesos administrativos, fortaleciendo la cultura de rendición de cuentas y la
-          participación de la ciudadanía en la vigilancia de la gestión pública.
+          Nace con la finalidad de promover la eficiencia, eficacia y efectividad de la gestión
+          pública de los órganos y entes sujetos a su control en el Municipio Ambrosio Plaza del
+          Estado Bolivariano de Miranda, procurando una sana gestión administrativa sujeta al
+          cumplimiento de las disposiciones constitucionales, legales y sublegales; colaborando
+          con la lucha contra la corrupción e impunidad y, con ello, mejorar la calidad de vida
+          de los habitantes del Municipio.
         </p>
       </div>
     </div>
@@ -67,50 +72,8 @@ include 'includes/header.php';
   <section class="seccion subseccion" id="estructura">
     <div class="contenedor">
       <h2 class="subseccion-titulo">Estructura Organizativa</h2>
-      <div class="organigrama">
-        <div class="caja-org">
-          Contraloría Municipal<br>
-          <small>Contralor(a) Municipal</small>
-        </div>
-        <div class="rama"></div>
-        <div class="nivel">
-          <div class="caja">
-            <strong>Despacho del Contralor</strong>
-            <small>Dirección general</small>
-          </div>
-          <div class="caja">
-            <strong>Dirección de Control Fiscal</strong>
-            <small>Actuaciones y fiscalización</small>
-          </div>
-          <div class="caja">
-            <strong>Dirección de Control Administrativo y Financiero</strong>
-            <small>Gestión interna</small>
-          </div>
-        </div>
-        <div class="nivel">
-          <div class="caja">
-            <strong>Oficina de Atención al Ciudadano (OAC)</strong>
-            <small>Denuncias y participación</small>
-          </div>
-          <div class="caja">
-            <strong>Dirección de Consultoría Jurídica</strong>
-            <small>Asesoría legal</small>
-          </div>
-          <div class="caja">
-            <strong>Dirección de Recursos Humanos</strong>
-            <small>Talento humano</small>
-          </div>
-        </div>
-        <div class="nivel">
-          <div class="caja">
-            <strong>Dirección de Tecnología de la Información</strong>
-            <small>Sistemas e infraestructura</small>
-          </div>
-          <div class="caja">
-            <strong>Dirección de Comunicación y Relaciones Públicas</strong>
-            <small>Información institucional</small>
-          </div>
-        </div>
+      <div class="marco-imagen">
+        <img src="assets/img/estructura_organizativa.jpg" alt="Estructura organizativa de la Contraloría del Municipio Ambrosio Plaza">
       </div>
     </div>
   </section>

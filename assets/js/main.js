@@ -131,9 +131,159 @@
     });
   }
 
+  /* ---------- Botón volver arriba ---------- */
+  var botonSubir = document.getElementById('botonSubir');
+  if (botonSubir) {
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 300) {
+        botonSubir.classList.add('visible');
+      } else {
+        botonSubir.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    botonSubir.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   /* ---------- Año automático en el pie ---------- */
   var anio = document.getElementById('anio');
   if (anio) {
     anio.textContent = new Date().getFullYear();
+  }
+
+  /* ---------- Buscador de manuales ---------- */
+  var buscadorManual = document.getElementById('buscarManual');
+  var cuerpoTablaManuales = document.getElementById('tablaManuales');
+
+  if (buscadorManual && cuerpoTablaManuales) {
+    var filaSinResultados = document.getElementById('sinResultados');
+
+    function filtrarManuales() {
+      var termino = buscadorManual.value.trim().toLowerCase();
+      var visibles = 0;
+      var filas = cuerpoTablaManuales.querySelectorAll('tr:not(#sinResultados)');
+
+      Array.prototype.forEach.call(filas, function (fila) {
+        var celdas = fila.cells;
+        var denominacion = celdas && celdas[1] ? celdas[1].textContent.toLowerCase() : '';
+        var coincide = termino === '' || denominacion.indexOf(termino) !== -1;
+        fila.style.display = coincide ? '' : 'none';
+        if (coincide) visibles++;
+      });
+
+      if (filaSinResultados) {
+        filaSinResultados.style.display = visibles === 0 ? '' : 'none';
+      }
+    }
+
+    buscadorManual.addEventListener('input', filtrarManuales);
+  }
+
+  /* ---------- Carrusel de contralores ---------- */
+  var carrusel = document.getElementById('carruselContralores');
+  if (carrusel) {
+    var pista = carrusel.querySelector('.carrusel-pista');
+    var items = pista.querySelectorAll('.carrusel-item');
+    var btnAnterior = document.getElementById('carruselAnterior');
+    var btnSiguiente = document.getElementById('carruselSiguiente');
+    var contPuntos = document.getElementById('carruselPuntos');
+    var indice = 0;
+    var INTERVALO = 5000;
+    var temporizador = null;
+
+    function porVista() {
+      var ancho = window.innerWidth;
+      if (ancho <= 560) return 1;
+      if (ancho <= 900) return 2;
+      return 3;
+    }
+
+    function totalPaginas() {
+      return Math.max(1, Math.ceil(items.length / porVista()));
+    }
+
+    function fijarIndice() {
+      if (indice > totalPaginas() - 1) indice = totalPaginas() - 1;
+      if (indice < 0) indice = 0;
+    }
+
+    function pintarPuntos() {
+      if (!contPuntos) return;
+      contPuntos.innerHTML = '';
+      var paginas = totalPaginas();
+      for (var i = 0; i < paginas; i++) {
+        var punto = document.createElement('button');
+        punto.type = 'button';
+        punto.className = 'carrusel-punto' + (i === indice ? ' activo' : '');
+        punto.setAttribute('aria-label', 'Ir a la página ' + (i + 1));
+        punto.addEventListener('click', crearIrA(i));
+        contPuntos.appendChild(punto);
+      }
+    }
+
+    function crearIrA(posicion) {
+      return function () {
+        irA(posicion);
+      };
+    }
+
+    function mover() {
+      if (!items.length) return;
+      var paso = items[0].offsetWidth;
+      pista.style.transform = 'translate3d(-' + (indice * porVista() * paso) + 'px,0,0)';
+      if (contPuntos) {
+        Array.prototype.forEach.call(contPuntos.children, function (punto, i) {
+          punto.classList.toggle('activo', i === indice);
+        });
+      }
+    }
+
+    function irA(posicion) {
+      if (!items.length) return;
+      indice = posicion;
+      fijarIndice();
+      mover();
+      reiniciar();
+    }
+
+    function avanzar() {
+      if (!items.length) return;
+      indice = indice < totalPaginas() - 1 ? indice + 1 : 0;
+      mover();
+      reiniciar();
+    }
+
+    function reiniciar() {
+      detener();
+      temporizador = setInterval(avanzar, INTERVALO);
+    }
+
+    function detener() {
+      if (temporizador) {
+        clearInterval(temporizador);
+        temporizador = null;
+      }
+    }
+
+    if (btnAnterior) btnAnterior.addEventListener('click', function () {
+      irA(indice > 0 ? indice - 1 : totalPaginas() - 1);
+    });
+    if (btnSiguiente) btnSiguiente.addEventListener('click', function () {
+      irA(indice < totalPaginas() - 1 ? indice + 1 : 0);
+    });
+    carrusel.addEventListener('mouseenter', detener);
+    carrusel.addEventListener('mouseleave', reiniciar);
+
+    window.addEventListener('resize', function () {
+      fijarIndice();
+      mover();
+      pintarPuntos();
+    });
+
+    pintarPuntos();
+    mover();
+    reiniciar();
   }
 })();
