@@ -30,7 +30,7 @@ if ($driver === 'pgsql') {
     "CREATE TABLE IF NOT EXISTS trabajadores (
        cedula VARCHAR(20) NOT NULL PRIMARY KEY,
        nombre_completo VARCHAR(120) NOT NULL,
-       cargo VARCHAR(60) NOT NULL,
+       cargo VARCHAR(150) NOT NULL,
        direccion VARCHAR(120) NOT NULL,
        foto BYTEA
      )"
@@ -40,7 +40,7 @@ if ($driver === 'pgsql') {
     "CREATE TABLE IF NOT EXISTS trabajadores (
        cedula VARCHAR(20) NOT NULL PRIMARY KEY,
        nombre_completo VARCHAR(120) NOT NULL,
-       cargo VARCHAR(60) NOT NULL,
+       cargo VARCHAR(150) NOT NULL,
        direccion VARCHAR(120) NOT NULL,
        foto LONGBLOB NULL
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"

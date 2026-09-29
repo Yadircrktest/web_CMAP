@@ -180,7 +180,7 @@ if (!$simular) {
       "CREATE TABLE IF NOT EXISTS trabajadores (
          cedula VARCHAR(20) NOT NULL PRIMARY KEY,
          nombre_completo VARCHAR(120) NOT NULL,
-         cargo VARCHAR(60) NOT NULL,
+         cargo VARCHAR(150) NOT NULL,
          direccion VARCHAR(120) NOT NULL,
          foto BYTEA
        )"
@@ -190,11 +190,30 @@ if (!$simular) {
       "CREATE TABLE IF NOT EXISTS trabajadores (
          cedula VARCHAR(20) NOT NULL PRIMARY KEY,
          nombre_completo VARCHAR(120) NOT NULL,
-         cargo VARCHAR(60) NOT NULL,
+         cargo VARCHAR(150) NOT NULL,
          direccion VARCHAR(120) NOT NULL,
          foto LONGBLOB NULL
        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     );
+  }
+
+  /* Ensancha cargo si la instalación previa la dejó en VARCHAR(60) */
+  try {
+    $ancho = $pdo->query(
+      $driver === 'pgsql'
+        ? "SELECT character_maximum_length FROM information_schema.columns WHERE table_name = 'trabajadores' AND column_name = 'cargo'"
+        : "SELECT character_maximum_length FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'trabajadores' AND column_name = 'cargo'"
+    )->fetchColumn();
+    if ((int)$ancho < 150) {
+      $pdo->exec(
+        $driver === 'pgsql'
+          ? "ALTER TABLE trabajadores ALTER COLUMN cargo TYPE VARCHAR(150)"
+          : "ALTER TABLE trabajadores MODIFY COLUMN cargo VARCHAR(150) NOT NULL"
+      );
+      echo "Columna cargo ampliada a VARCHAR(150).\n";
+    }
+  } catch (PDOException $e) {
+    echo "Aviso: no se pudo verificar/ampliar la columna cargo ({$e->getMessage()}).\n";
   }
   echo "Tabla 'trabajadores' lista (driver: $driver).\n";
 
