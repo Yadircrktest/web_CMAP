@@ -33,7 +33,29 @@ header('Content-Type: text/plain; charset=utf-8');
 $dirQr = __DIR__ . '/qr';
 if (!is_dir($dirQr)) mkdir($dirQr, 0755, true);
 
-$filas = $pdo->query("SELECT cedula, nombre_completo FROM trabajadores ORDER BY cedula");
+$filas = $pdo->query("SELECT cedula, nombre_completo FROM trabajadores ORDER BY cedula")->fetchAll();
+
+/* Nombre de archivo a partir del primer nombre; si se repite se agrega el apellido */
+function slug($s) {
+  $s = mb_strtolower(trim($s), 'UTF-8');
+  $s = strtr($s, ['á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'ü' => 'u', 'ñ' => 'n']);
+  $s = preg_replace('/[^a-z0-9]+/', ' ', $s);
+  return trim($s);
+}
+
+$usados = [];
+$nombresArchivo = [];
+foreach ($filas as $f) {
+  $palabras = explode(' ', slug($f['nombre_completo']));
+  $candidato = $palabras[0];
+  if (isset($usados[$candidato])) {
+    $candidato = $palabras[0] . '_' . ($palabras[1] ?? '');
+    while (isset($usados[$candidato])) $candidato .= '_' . preg_replace('/\D/', '', $f['cedula']);
+  }
+  $usados[$candidato] = true;
+  $nombresArchivo[$f['cedula']] = $candidato;
+}
+
 $total = 0;
 $ok = 0;
 $err = 0;
@@ -44,7 +66,7 @@ foreach ($filas as $fila) {
   $total++;
 
   $urlCarnet = $base . '/carnet.php?cedula=' . rawurlencode($cedula);
-  $archivo = $dirQr . '/carnet_' . preg_replace('/[^A-Za-z0-9.\-]/', '_', $cedula) . '.png';
+  $archivo = $dirQr . '/carnet_' . $nombresArchivo[$cedula] . '.png';
 
   if (!$fuerza && is_file($archivo) && filesize($archivo) > 0) {
     echo "ya existe: " . basename($archivo) . " ($cedula)\n";
