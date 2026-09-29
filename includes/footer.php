@@ -10,7 +10,7 @@
       </p>
       <div class="pie-redes">
         <a href="https://www.facebook.com/cmapunidadrelacionesinst1" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="X (Twitter)">X</a>
+        <a href="https://x.com/ctmaplaza" aria-label="X (Twitter)">X</a>
         <a href="https://www.instagram.com/contraloriaplaza/?hl=es-la" aria-label="Instagram">IG</a>
       </div>
     </div>
