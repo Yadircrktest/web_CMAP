@@ -5,10 +5,11 @@
    Los PNG se guardan en ./qr/carnet_<cedula>.png
    Uso:
      https://TU_SITIO/generar-qr.php?clave=TUDB_SETUP_KEY
-   Opciones:
-     ?base=URL           dominio base (por defecto: https://web-cmap-2.onrender.com)
-     ?tamano=300         píxeles del QR (por defecto 256)
-     ?fuerza=1           vuelve a descargar aunque el archivo ya exista */
+Opciones:
+      ?base=URL           dominio base (por defecto: https://web-cmap-2.onrender.com)
+      ?tamano=300         píxeles del QR (por defecto 256)
+      ?fuerza=1           vuelve a descargar aunque el archivo ya exista
+      ?cedula=XXXX        genera solo el QR de esa cédula (ej: ?cedula=18.955.123) */
 
 require_once __DIR__ . '/includes/db_conexion.php';
 
@@ -18,9 +19,10 @@ if ($claveEsperada === false || $claveEsperada === '' || !isset($_GET['clave']) 
   exit('Acceso denegado.');
 }
 
-$base     = isset($_GET['base']) && $_GET['base'] !== '' ? rtrim(trim($_GET['base']), '/') : 'https://web-cmap-2.onrender.com';
-$tamano   = isset($_GET['tamano']) ? max(128, (int)$_GET['tamano']) : 256;
-$fuerza   = isset($_GET['fuerza']) && $_GET['fuerza'] === '1';
+$base   = isset($_GET['base']) && $_GET['base'] !== '' ? rtrim(trim($_GET['base']), '/') : 'https://web-cmap-2.onrender.com';
+$tamano = isset($_GET['tamano']) ? max(128, (int)$_GET['tamano']) : 256;
+$fuerza = isset($_GET['fuerza']) && $_GET['fuerza'] === '1';
+$solo   = isset($_GET['cedula']) && $_GET['cedula'] !== '' ? trim($_GET['cedula']) : '';
 
 $pdo = conectarBD();
 if ($pdo === null) {
@@ -33,7 +35,12 @@ header('Content-Type: text/plain; charset=utf-8');
 $dirQr = __DIR__ . '/qr';
 if (!is_dir($dirQr)) mkdir($dirQr, 0755, true);
 
-$filas = $pdo->query("SELECT cedula, nombre_completo FROM trabajadores ORDER BY cedula")->fetchAll();
+$sql = "SELECT cedula, nombre_completo FROM trabajadores";
+if ($solo !== '') {
+  $sql .= " WHERE cedula = " . $pdo->quote($solo);
+}
+$sql .= " ORDER BY cedula";
+$filas = $pdo->query($sql)->fetchAll();
 
 /* Nombre de archivo a partir del primer nombre; si se repite se agrega el apellido */
 function slug($s) {
